@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--打印执行sql-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--转驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@172.16.11.39:1521:nwppdb2"/>
+                <property name="username" value="nwpp_test"/>
+                <property name="password" value="gzcss"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="TRequestRecordMapper.xml"/>
+    </mappers>
+</configuration>
