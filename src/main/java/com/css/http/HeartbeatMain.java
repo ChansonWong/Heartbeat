@@ -19,7 +19,7 @@ public class HeartbeatMain {
 
         try {
             // 声明Get请求，并填上地址
-            HttpGet httpGet = new HttpGet("http://localhost:8080/nwpp/sword?ctrl=XxCommonCtrl_connect");
+            HttpGet httpGet = new HttpGet("http://localhost:8080/nwpp/sword?ctrl=ComKsCtrl_requestTest");
             // 接受Get请求
             CloseableHttpResponse httpResponse = httpClient.execute(httpGet);
             // 状态码
@@ -38,6 +38,8 @@ public class HeartbeatMain {
 
             // print result
             System.out.println(response.toString());
+            // 获取服务器
+            System.out.println(httpResponse.getFirstHeader("Server").getValue());
             httpClient.close();
 
         } catch (IOException e) {
